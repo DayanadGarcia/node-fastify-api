@@ -1,14 +1,3 @@
-// servidor nativo do Node.js
-// import { createServer } from 'node:http';
-
-// const server = createServer((req, res) => {
-//     res.write("Hello, world!");
-
-//     return res.end()
-// });
-
-// server.listen(3333)
-
 import { fastify } from 'fastify'
 import { DatabaseMemory } from './database-memory.js'
 
@@ -21,7 +10,6 @@ server.listen({
   port: 3333,
 })
 
-// Define the routes
 // GET /videos - List all videos
 server.get('/videos', () => {
   return database.list()
