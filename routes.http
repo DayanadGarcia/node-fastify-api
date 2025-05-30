@@ -1,3 +1,4 @@
+// Create a new video
 POST http://localhost:3333/videos
 Content-Type: application/json
 
@@ -9,11 +10,13 @@ Content-Type: application/json
 
 ###
 
+// List all videos data, including UUIDs
 GET http://localhost:3333/videos
 
 ###
 
-PUT http://localhost:3333/videos/934095ac-5612-45cb-befa-1c2526eb443a
+// Get a specific video by UUID
+PUT http://localhost:3333/videos/video-uuid
 Content-Type: application/json
 
 {
@@ -24,4 +27,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/videos/934095ac-5612-45cb-befa-1c2526eb443a
+// Delete a specific video by UUID
+DELETE http://localhost:3333/videos/video-uuid
