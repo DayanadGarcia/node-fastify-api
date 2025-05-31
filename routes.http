@@ -3,15 +3,20 @@ POST http://localhost:3333/videos
 Content-Type: application/json
 
 {
-  "title": "New Video",
-  "description": "This is a other new video description.",
+  "title": "New Video Title",
+  "description": "This is a new video description.",
   "duration": 120
 }
 
 ###
 
-// List all videos data, including UUIDs
+// List all videos data
 GET http://localhost:3333/videos
+
+###
+
+// Filter videos by search term
+GET http://localhost:3333/videos?search=search-term
 
 ###
 
@@ -20,7 +25,7 @@ PUT http://localhost:3333/videos/video-uuid
 Content-Type: application/json
 
 {
-  "title": "Updated Video Title",
+  "title": "Updated New Video Title",
   "description": "This is an updated video description.",
   "duration": 150
 }

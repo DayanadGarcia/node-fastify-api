@@ -12,8 +12,11 @@ server.listen({
 })
 
 // GET /videos - List all videos
-server.get('/videos', async () => {
-  return await database.list()
+server.get('/videos', async (req) => {
+  const search = req.query.search
+  const videos =  await database.list(search)
+
+  return videos
 })
 
 // POST /videos - Create a new video
@@ -33,11 +36,11 @@ server.post('/videos', async (req, res) => {
 })
 
 // PUT /videos/:id - Update a video by ID
-server.put('/videos/:id', (req, res) => {
+server.put('/videos/:id', async (req, res) => {
   const videoId = req.params.id
   const { title, description, duration } = req.body
 
-  database.update(videoId, {
+  await database.update(videoId, {
     title,
     description,
     duration,
@@ -46,8 +49,8 @@ server.put('/videos/:id', (req, res) => {
 })
 
 // DELETE /videos/:id - Delete a video by ID
-server.delete('/videos/:id', (req, res) => {
+server.delete('/videos/:id', async (req, res) => {
   const videoId = req.params.id
-  database.delete(videoId)
+  await database.delete(videoId)
   return res.status(204).send()
 })
